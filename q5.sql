@@ -1,6 +1,4 @@
---5 THERE'S THREE EMPLOYEES
+--5 
 SELECT a.firstName || ' ' || a.lastName as fullName, b.departmentName, a.salary
 FROM Worker a, Dept b
-WHERE b.departmentName = 'Accounting'
-ORDER BY salary ASC
-FETCH FIRST 3 ROW ONLY;
+WHERE b.departmentName = 'Accounting' AND a.salary = (SELECT min(salary) FROM Worker);
