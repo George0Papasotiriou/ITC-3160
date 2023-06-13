@@ -1,4 +1,9 @@
 --10 
-SELECT empID, projNo, projName
-FROM ProjectWorkers
-WHERE empID=103;
+SELECT
+    empid,
+    projno,
+    projname
+FROM
+    projectworkers
+WHERE
+    empid = 103;

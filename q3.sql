@@ -1,3 +1,9 @@
 --3
-SELECT EmpID, firstName || ' ' || lastName as fullName, (salary/4) as threeMonthSalary  
-FROM Worker;
+SELECT
+    empid,
+    firstname
+    || ' '
+    || lastname    AS fullname,
+    ( salary / 4 ) AS threemonthsalary
+FROM
+    worker;

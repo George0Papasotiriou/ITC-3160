@@ -1,6 +1,17 @@
 --15
-SELECT a.firstname AS employeeFName, a.lastName AS employeeLName, b.firstName AS managerFName, b.lastName AS managerLName
-FROM Worker a
-LEFT JOIN Dept c ON a.departmentID = c.departmentID
-LEFT JOIN Worker b ON c.mgrId = b.empId
-WHERE a.empId NOT IN (SELECT empId FROM Assign);
+SELECT
+    a.firstname AS employeefname,
+    a.lastname  AS employeelname,
+    b.firstname AS managerfname,
+    b.lastname  AS managerlname
+FROM
+    worker a
+    LEFT JOIN dept   c ON a.departmentid = c.departmentid
+    LEFT JOIN worker b ON c.mgrid = b.empid
+WHERE
+    a.empid NOT IN (
+        SELECT
+            empid
+        FROM
+            assign
+    );

@@ -1,4 +1,18 @@
 --5 
-SELECT a.firstName || ' ' || a.lastName as fullName, b.departmentName, a.salary
-FROM Worker a, Dept b
-WHERE b.departmentName = 'Accounting' AND a.salary = (SELECT min(salary) FROM Worker);
+SELECT
+    a.firstname
+    || ' '
+    || a.lastname AS fullname,
+    b.departmentname,
+    a.salary
+FROM
+    worker a,
+    dept   b
+WHERE
+        b.departmentname = 'Accounting'
+    AND a.salary = (
+        SELECT
+            MIN(salary)
+        FROM
+            worker
+    );

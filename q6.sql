@@ -1,6 +1,12 @@
 --6
-SELECT * FROM Project
-WHERE budget = (
-  SELECT MIN(budget)
-  FROM Project
-);
+SELECT
+    *
+FROM
+    project
+WHERE
+    budget = (
+        SELECT
+            MIN(budget)
+        FROM
+            project
+    );

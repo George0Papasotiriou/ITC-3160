@@ -1,4 +1,7 @@
 --12
-UPDATE Assign
-SET hoursAssigned = 30
-WHERE projNo = 1019 AND empID =115;
+UPDATE assign
+SET
+    hoursassigned = 30
+WHERE
+        projno = 1019
+    AND empid = 115;

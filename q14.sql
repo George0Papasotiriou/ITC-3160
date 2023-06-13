@@ -1,4 +1,9 @@
 --14 
-SELECT projNo, COUNT(empID) as WorkersNo, SUM(hoursassigned) AS totalHours
-FROM Assign 
-GROUP BY projNo;
+SELECT
+    projno,
+    COUNT(empid)       AS workersno,
+    SUM(hoursassigned) AS totalhours
+FROM
+    assign
+GROUP BY
+    projno;

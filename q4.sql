@@ -1,5 +1,12 @@
 --4
-SELECT a.Lastname, a.firstName, b.projno
-FROM Worker a, Project b
-WHERE projno = 1041
-ORDER BY a.lastname ASC;
+SELECT
+    a.lastname,
+    a.firstname,
+    b.projno
+FROM
+    worker  a,
+    project b
+WHERE
+    projno = 1041
+ORDER BY
+    a.lastname ASC;

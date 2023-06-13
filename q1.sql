@@ -1,4 +1,11 @@
 --1
-SELECT a.firstName || ' ' || a.lastName as fullName, b.departmentName
-FROM Worker a, Dept b
-WHERE b.departmentName = 'Research';
+SELECT
+    a.firstname
+    || ' '
+    || a.lastname AS fullname,
+    b.departmentname
+FROM
+    worker a,
+    dept   b
+WHERE
+    b.departmentname = 'Research';

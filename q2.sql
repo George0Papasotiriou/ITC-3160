@@ -1,3 +1,7 @@
 --2 
-SELECT * FROM Project
-WHERE projName LIKE 'M%';
+SELECT
+    *
+FROM
+    project
+WHERE
+    projname LIKE 'M%';
