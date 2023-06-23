@@ -1,5 +1,5 @@
 --19
-ALTER TABLE Project ADD numEmployeesAssigned NUMBER(3);
+ALTER TABLE Project ADD numEmployeesAssigned NUMBER(10);
 
 UPDATE Project
 SET numEmployeesAssigned = (
