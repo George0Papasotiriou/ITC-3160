@@ -10,3 +10,4 @@ FROM
     JOIN Project c ON a.projNo = c.projNo
 WHERE
     c.startDate > TO_DATE('2023-01-01', 'YYYY-MM-DD');
+
