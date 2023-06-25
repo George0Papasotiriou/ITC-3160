@@ -1,13 +1,16 @@
 --13
 SELECT
-    a.projNo,
-    a.empId,
-    b.firstName,
-    b.lastName
+    a.projno,
+    a.empid,
+    b.firstname,
+    b.lastname
 FROM
-    Assign a
-    JOIN Worker b ON a.empId = b.empId
-    JOIN Project c ON a.projNo = c.projNo
+    projectworkers a
+    JOIN worker b ON a.empid = b.empid
+    JOIN project c ON a.projno = c.projno
 WHERE
-    c.startDate > TO_DATE('2023-01-01', 'YYYY-MM-DD');
+    c.startdate > DATE '2023-01-01'
+ORDER BY
+    a.projno;
+
 
