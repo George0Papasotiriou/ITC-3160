@@ -1,9 +1,18 @@
 --19
-ALTER TABLE Project ADD numEmployeesAssigned NUMBER(10);
+ALTER TABLE project ADD numemployeesassigned NUMBER(10);
 
-UPDATE Project
-SET numEmployeesAssigned = (
-    SELECT COUNT(empId)
-    FROM Assign
-    WHERE Assign.projNo = Project.projNo
-);
+UPDATE project
+SET
+    numemployeesassigned = (
+        SELECT
+            COUNT(empid)
+        FROM
+            assign
+        WHERE
+            assign.projno = project.projno
+    );
+
+SELECT
+    *
+FROM
+    project;

@@ -82,3 +82,11 @@ INSERT INTO assign (
     40,
     5
 );
+
+SELECT
+    *
+FROM
+    worker
+WHERE
+    empid = 138
+    OR empid = 140;
