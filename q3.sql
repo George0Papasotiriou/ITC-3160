@@ -4,6 +4,6 @@ SELECT
     firstname
     || ' '
     || lastname    AS fullname,
-    ( salary / 4 ) AS threemonthsalary
+    ( salary / 4 ) AS threeMonthSalary
 FROM
     worker;
