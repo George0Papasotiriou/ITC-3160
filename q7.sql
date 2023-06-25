@@ -6,6 +6,7 @@ SELECT
     b.departmentname
 FROM
          worker a
+    --Explicit Join
     JOIN dept b ON a.departmentid = b.departmentid
 WHERE
     a.empid IN (
