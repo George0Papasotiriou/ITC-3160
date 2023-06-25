@@ -42,7 +42,7 @@ END update_numEmployeesAssigned;
 ALTER TABLE Project ADD numEmployeesAssigned NUMBER;
 
 --For Testing Purposes
-INSERT INTO ASSIGN Values(1057, 200, 5, 5);
+INSERT INTO ASSIGN Values(1005, 140, 5, 5);
 
 SELECT * FROM ASSIGN;
 SELECT * FROM PROJECT;
