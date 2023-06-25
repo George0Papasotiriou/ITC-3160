@@ -10,3 +10,8 @@ CREATE VIEW projectworkers AS
              project a
         JOIN assign b ON a.projno = b.projno
         JOIN worker c ON b.empid = c.empid;
+        
+SELECT
+    *
+FROM
+    projectworkers;
