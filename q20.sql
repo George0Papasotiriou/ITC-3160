@@ -1,41 +1,34 @@
 --20
-CREATE OR REPLACE TRIGGER update_numEmployeesAssigned
+/* To avoid the mutating triggers error */
+CREATE OR REPLACE TRIGGER Update_numEmployeesAssigned
 FOR INSERT OR UPDATE OR DELETE ON Assign
 COMPOUND TRIGGER
 
-  -- Define a collection to store project numbers
-  TYPE projNoList IS TABLE OF Assign.projNo%TYPE;
-  projNos projNoList := projNoList();
+/* We need to use the TYPE command to store the data of the table */
+TYPE EmpIdTotal IS TABLE OF Assign.EmpId%TYPE;
+EmpIdTotal EmpId := EmpId();
 
-  AFTER EACH ROW IS BEGIN
-    -- Store the project number of the affected row
-    projNos.EXTEND();
-    projNos(projNos.COUNT) := :new.projNo;
-  END AFTER EACH ROW;
 
-  AFTER STATEMENT IS BEGIN
-    -- Iterate through the project numbers and update the numEmployeesAssigned field
-    FOR i IN 1..projNos.COUNT LOOP
-      -- Calculate the number of employees
-      DECLARE
-        totalEmployees NUMBER;
-      BEGIN
-        SELECT COUNT(*) INTO totalEmployees
-        FROM Assign
-        WHERE projNo = projNos(i);
+/* We need to somehow count the Number of employees (By ID probably) */
+BEFORE EACH ROW IS
 
-        -- Update numEmployeesAssigned field
-        UPDATE Project
-        SET numEmployeesAssigned = totalEmployees
-        WHERE projNo = projNos(i);
-      END;
-    END LOOP;
+    EmpId_exists boolean := false;
+
+Begin
+    WHILE NOT EmpId_exists
+
+LOOP
+    EmpId_Exists := ((EmpIdTotal + 1) = :EmpId)
     
-    -- Clear the project number list
-    projNos.DELETE;
-  END AFTER STATEMENT;
+END LOOP
 
-END update_numEmployeesAssigned;
+END BEOFRE EACH ROW;
+
+/* After counting, we need to update the numEmployeesAssigned */
+UPDATE Project
+SET numEmployeesAssigned = EmpIdTotal
+
+END Update_numEmployeesAssigned;
 /
 
 
@@ -46,3 +39,4 @@ INSERT INTO ASSIGN Values(1005, 140, 5, 5);
 
 SELECT * FROM ASSIGN;
 SELECT * FROM PROJECT;
+Select * FROM WORKER;
